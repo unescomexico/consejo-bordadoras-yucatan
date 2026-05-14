@@ -122,7 +122,6 @@ export function precargarImagenes() {
 /**
  * Genera el HTML de una tarjeta de pieza.
  * La imagen se resuelve de forma asíncrona desde Drive.
- * Si la bordadora es consejera, agrega una etiqueta dorada.
  */
 export async function renderizarTarjetaPieza(pieza) {
   const placeholderInicial = (pieza.nombre || "?").charAt(0).toUpperCase();
@@ -133,10 +132,6 @@ export async function renderizarTarjetaPieza(pieza) {
     urlFoto = await urlDesdeNombre(pieza.nombreArchivoFoto);
   }
   
-  // Verificar si la bordadora es consejera
-  const setConsejeras = await obtenerSetConsejeras();
-  const esConsejera = setConsejeras.has(normalizar(pieza.bordadora));
-  
   const imagenHTML = urlFoto
     ? `<img class="tarjeta-pieza__imagen" 
             src="${escapar(urlFoto)}" 
@@ -144,16 +139,6 @@ export async function renderizarTarjetaPieza(pieza) {
             loading="lazy"
             onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'tarjeta-pieza__placeholder\\'>${placeholderInicial}</div>'">`
     : `<div class="tarjeta-pieza__placeholder">${placeholderInicial}</div>`;
-  
-  // Etiqueta de consejera (badge dorado, esquina superior de la imagen)
-  const etiquetaConsejera = esConsejera
-    ? `<span class="tarjeta-pieza__badge" title="Bordadora integrante del Consejo Estatal">
-         <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-           <path d="M12 2l2.39 7.36H22l-6.18 4.49 2.36 7.36L12 16.72l-6.18 4.49 2.36-7.36L2 9.36h7.61L12 2z"/>
-         </svg>
-         Consejera
-       </span>`
-    : '';
   
   const precio = pieza.precio
     ? `$${Number(pieza.precio).toLocaleString("es-MX")} MXN`
@@ -172,7 +157,6 @@ export async function renderizarTarjetaPieza(pieza) {
        data-id="${escapar(pieza.id)}">
       <div class="tarjeta-pieza__imagen-wrap">
         ${imagenHTML}
-        ${etiquetaConsejera}
       </div>
       <div class="tarjeta-pieza__contenido">
         <div class="tarjeta-pieza__categoria">${escapar(pieza.categoria)}</div>
