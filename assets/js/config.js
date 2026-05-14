@@ -13,13 +13,17 @@ export const CONFIG = {
   // Para republicar: Archivo → Compartir → Publicar en la web → CSV
   // ============================================================
   
-  urlProductos: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRcYzCHpq6xg2dc7ves1wASXpH6hIIUE3-KIHv37LqzwBf_FaX0KmW4NNieO-ybLA/pub?gid=1035462451&single=true&output=csv",
+  urlProductos: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTz0Fpu5nuCiJzvWqbMFgaiocgdcXr-DlMyWvX0C9I67MfzMa1WqT-hunYTAgAvL4WlCo8X_FCj0k1j/pub?gid=1288081791&single=true&output=csv",
   
-  urlBordadoras: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRcYzCHpq6xg2dc7ves1wASXpH6hIIUE3-KIHv37LqzwBf_FaX0KmW4NNieO-ybLA/pub?gid=789864744&single=true&output=csv",
+  // Pestaña "Consejeras" — las 24 integrantes electas del Consejo (lista estable)
+  urlConsejeras: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTz0Fpu5nuCiJzvWqbMFgaiocgdcXr-DlMyWvX0C9I67MfzMa1WqT-hunYTAgAvL4WlCo8X_FCj0k1j/pub?gid=1161637870&single=true&output=csv",
+  
+  // Pestaña "Bordadoras" — las que publican productos en el catálogo (lista dinámica)
+  urlBordadoras: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTz0Fpu5nuCiJzvWqbMFgaiocgdcXr-DlMyWvX0C9I67MfzMa1WqT-hunYTAgAvL4WlCo8X_FCj0k1j/pub?gid=1382099101&single=true&output=csv",
   
   // URL de la pestaña "Configuración" — cuando publiques esa pestaña como CSV,
   // pega aquí la URL que te dé Google.
-  urlConfiguracion: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRcYzCHpq6xg2dc7ves1wASXpH6hIIUE3-KIHv37LqzwBf_FaX0KmW4NNieO-ybLA/pub?gid=2108682120&single=true&output=csv",
+  urlConfiguracion: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTz0Fpu5nuCiJzvWqbMFgaiocgdcXr-DlMyWvX0C9I67MfzMa1WqT-hunYTAgAvL4WlCo8X_FCj0k1j/pub?gid=2139434298&single=true&output=csv",
   
   // ============================================================
   // Google Drive API — para cargar imágenes desde la carpeta pública

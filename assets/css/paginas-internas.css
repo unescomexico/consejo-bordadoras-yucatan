@@ -295,6 +295,43 @@
 }
 
 /* ------------------------------------------------------------
+   TARJETA DE CONSEJERA (variante con cargo)
+   ------------------------------------------------------------ */
+
+.tarjeta-consejera__cargo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  align-self: flex-start;
+  padding: 4px 10px 4px 8px;
+  margin-bottom: var(--esp-2);
+  background-color: var(--c-dorado);
+  color: white;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radio-pill);
+  box-shadow: 0 2px 6px rgba(176, 144, 64, 0.3);
+}
+
+.tarjeta-consejera__cargo svg {
+  display: block;
+}
+
+.tarjeta-consejera__colectivo {
+  font-size: 0.85rem;
+  color: var(--c-tinta-suave);
+  margin-bottom: var(--esp-3);
+}
+
+.tarjeta-consejera__colectivo em {
+  color: var(--c-azul-oscuro);
+  font-style: italic;
+}
+
+/* ------------------------------------------------------------
    FILTROS DE CATÁLOGO
    ------------------------------------------------------------ */
 
@@ -631,4 +668,244 @@
   background-color: var(--c-crema-claro);
   border-radius: var(--radio-sm);
   border-left: 2px solid var(--c-dorado);
+}
+
+/* ============================================================
+   AJUSTES RESPONSIVE PARA PÁGINAS INTERNAS
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .page-header__titulo {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+  
+  .page-header__subtitulo {
+    font-size: 1rem;
+  }
+  
+  .prosa h2 {
+    font-size: 1.6rem;
+  }
+  
+  .prosa h3 {
+    font-size: 1.2rem;
+  }
+  
+  .prosa p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .prosa blockquote {
+    padding: var(--esp-4) var(--esp-5);
+    font-size: 1.05rem;
+  }
+  
+  /* Formulario de contacto: inputs más grandes y cómodos para tap */
+  .form-contacto {
+    padding: var(--esp-6) var(--esp-5);
+  }
+  
+  .form-grupo__label {
+    font-size: 0.95rem;
+    margin-bottom: var(--esp-2);
+  }
+  
+  .form-grupo__input,
+  .form-grupo__textarea,
+  .form-grupo__select {
+    font-size: 1rem;
+    padding: 14px 16px;
+  }
+  
+  /* iOS hace zoom si el font-size es < 16px en input. Lo evitamos: */
+  .form-grupo__input,
+  .form-grupo__textarea,
+  .form-grupo__select {
+    font-size: 16px;
+  }
+  
+  /* Tarjetas de bordadora: imagen más compacta */
+  .tarjeta-bordadora__imagen-wrap {
+    aspect-ratio: 4 / 3;
+  }
+  
+  /* Información de contacto: ajustes de spacing */
+  .contacto-info__bloque {
+    padding-left: var(--esp-4);
+  }
+  
+  .contacto-info__valor {
+    font-size: 1.1rem;
+    word-break: break-word;
+  }
+  
+  /* Filtros del catálogo: scroll horizontal si no caben */
+  .filtros__contenedor {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: var(--esp-2);
+  }
+  
+  .filtros__grupo {
+    flex-wrap: nowrap;
+  }
+  
+  .filtro-chip {
+    flex-shrink: 0;
+  }
+  
+  /* Avisos del catálogo: más compactos */
+  .avisos-catalogo {
+    padding: var(--esp-8) 0;
+  }
+  
+  .imagen-banda {
+    height: 220px;
+  }
+}
+
+@media (max-width: 400px) {
+  /* Móviles muy pequeños */
+  .page-header {
+    padding: var(--esp-12) 0 var(--esp-8);
+  }
+  
+  .form-contacto {
+    padding: var(--esp-5) var(--esp-4);
+  }
+  
+  .form-contacto__titulo {
+    font-size: 1.3rem;
+  }
+  
+  .contacto-info__valor a {
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================================
+   QUÉ HACEMOS — Servicios del Consejo
+   ============================================================ */
+
+.servicios-grid__contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-inline: var(--esp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-12);
+}
+
+.servicio {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: var(--esp-8);
+  align-items: flex-start;
+  padding-bottom: var(--esp-12);
+  border-bottom: 1px solid var(--c-crema-oscuro);
+}
+
+.servicio:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.servicio__icono {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radio-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(42, 36, 25, 0.08);
+}
+
+.servicio__icono svg {
+  width: 44px;
+  height: 44px;
+}
+
+.servicio__sector {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-dorado-oscuro);
+  margin-bottom: var(--esp-2);
+}
+
+.servicio__titulo {
+  font-family: var(--fuente-display);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--c-tinta);
+  margin-bottom: var(--esp-4);
+}
+
+.servicio__descripcion {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--c-tinta-suave);
+  margin-bottom: var(--esp-5);
+}
+
+.servicio__lista {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+}
+
+.servicio__lista li {
+  position: relative;
+  padding-left: var(--esp-6);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--c-tinta-suave);
+}
+
+.servicio__lista li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 14px;
+  height: 1px;
+  background-color: var(--c-dorado);
+}
+
+/* Responsive servicios */
+@media (max-width: 768px) {
+  .servicios-grid__contenedor {
+    gap: var(--esp-10);
+    padding-inline: var(--esp-4);
+  }
+  
+  .servicio {
+    grid-template-columns: 1fr;
+    gap: var(--esp-4);
+    padding-bottom: var(--esp-10);
+  }
+  
+  .servicio__icono {
+    width: 72px;
+    height: 72px;
+  }
+  
+  .servicio__icono svg {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .servicio__titulo {
+    font-size: 1.6rem;
+  }
+  
+  .servicio__descripcion {
+    font-size: 1rem;
+  }
 }

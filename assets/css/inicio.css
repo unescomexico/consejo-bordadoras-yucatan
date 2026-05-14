@@ -116,11 +116,51 @@
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 70vh;
+    min-height: 600px;
   }
   
   .hero__contenido-wrap {
-    padding: var(--esp-16) var(--esp-6);
+    padding: var(--esp-12) var(--esp-6) var(--esp-16);
+  }
+  
+  .hero__overlay {
+    /* Overlay más fuerte en móvil para garantizar legibilidad */
+    background: linear-gradient(
+      180deg,
+      rgba(42, 36, 25, 0.75) 0%,
+      rgba(42, 36, 25, 0.8) 60%,
+      rgba(42, 36, 25, 0.9) 100%
+    );
+  }
+  
+  .hero__titulo {
+    font-size: clamp(2.25rem, 11vw, 3.5rem);
+  }
+  
+  .hero__subtitulo {
+    font-size: 1rem;
+  }
+  
+  .hero__acciones {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--esp-3);
+    margin-top: var(--esp-4);
+  }
+  
+  .hero__acciones .boton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero__contenido-wrap {
+    padding: var(--esp-12) var(--esp-4) var(--esp-12);
+  }
+  
+  .hero__eyebrow-texto {
+    font-size: 0.7rem;
   }
 }
 
@@ -446,4 +486,275 @@
 .apoyos__separador {
   color: var(--c-dorado);
   font-style: normal;
+}
+
+/* ============================================================
+   EJES TEMÁTICOS - Patrimonio vivo
+   ============================================================ */
+
+.ejes {
+  padding-block: var(--esp-16);
+  background-color: var(--c-crema-claro);
+}
+
+.ejes__encabezado {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--esp-12);
+}
+
+.ejes__encabezado h2 {
+  font-family: var(--fuente-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--c-tinta);
+  margin-block: var(--esp-3);
+}
+
+.ejes__encabezado p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--c-tinta-suave);
+}
+
+.ejes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--esp-6);
+}
+
+.eje {
+  background-color: var(--c-marfil);
+  padding: var(--esp-8) var(--esp-7);
+  border-radius: var(--radio-md);
+  border-top: 4px solid var(--c-dorado);
+  position: relative;
+  transition: transform var(--t-media), box-shadow var(--t-media);
+}
+
+.eje:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(42, 36, 25, 0.08);
+}
+
+.eje--patrimonio { border-top-color: var(--c-magenta); }
+.eje--institucionalidad { border-top-color: var(--c-dorado); }
+.eje--comunidad { border-top-color: var(--c-verde); }
+
+.eje__numero {
+  font-family: var(--fuente-display);
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--c-piedra-claro);
+  line-height: 1;
+  margin-bottom: var(--esp-3);
+}
+
+.eje__titulo {
+  font-family: var(--fuente-display);
+  font-size: 1.7rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--c-tinta);
+  margin-bottom: var(--esp-4);
+}
+
+.eje__texto {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--c-tinta-suave);
+}
+
+@media (max-width: 900px) {
+  .ejes__grid {
+    grid-template-columns: 1fr;
+    gap: var(--esp-5);
+  }
+  
+  .ejes {
+    padding-block: var(--esp-12);
+  }
+  
+  .eje {
+    padding: var(--esp-6) var(--esp-5);
+  }
+}
+
+/* ============================================================
+   QUÉ HACEMOS - resumen en el inicio
+   ============================================================ */
+
+.que-hacemos-resumen {
+  padding-block: var(--esp-16);
+}
+
+.que-hacemos-resumen__encabezado {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--esp-12);
+}
+
+.que-hacemos-resumen__encabezado h2 {
+  font-family: var(--fuente-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--c-tinta);
+  margin-block: var(--esp-3);
+}
+
+.que-hacemos-resumen__encabezado p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--c-tinta-suave);
+}
+
+.que-hacemos-resumen__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--esp-5);
+}
+
+.qh-tarjeta {
+  background-color: var(--c-marfil);
+  border: 1px solid var(--c-crema-oscuro);
+  border-radius: var(--radio-md);
+  padding: var(--esp-6);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--t-media), box-shadow var(--t-media), border-color var(--t-media);
+}
+
+.qh-tarjeta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(42, 36, 25, 0.08);
+  border-color: var(--c-dorado);
+}
+
+.qh-tarjeta__color {
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
+  margin-bottom: var(--esp-4);
+}
+
+.qh-tarjeta__titulo {
+  font-family: var(--fuente-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--c-tinta);
+  margin-bottom: var(--esp-3);
+}
+
+.qh-tarjeta__descripcion {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--c-tinta-suave);
+  flex-grow: 1;
+  margin-bottom: var(--esp-4);
+}
+
+.qh-tarjeta__cta {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--c-dorado-oscuro);
+  margin-top: auto;
+  transition: color var(--t-rapida);
+}
+
+.qh-tarjeta:hover .qh-tarjeta__cta {
+  color: var(--c-magenta);
+}
+
+@media (max-width: 1024px) {
+  .que-hacemos-resumen__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .que-hacemos-resumen__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   RESPALDO INSTITUCIONAL - timeline de logros
+   ============================================================ */
+
+.respaldo {
+  padding-block: var(--esp-16);
+  background-color: var(--c-tinta);
+  color: var(--c-marfil);
+}
+
+.respaldo__encabezado {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--esp-12);
+}
+
+.respaldo__encabezado h2 {
+  font-family: var(--fuente-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--c-marfil);
+  margin-top: var(--esp-3);
+}
+
+.respaldo__lista {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--esp-8);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.respaldo__hito {
+  padding-top: var(--esp-4);
+  border-top: 1px solid rgba(176, 144, 64, 0.3);
+}
+
+.respaldo__fecha {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-dorado-claro);
+  margin-bottom: var(--esp-3);
+}
+
+.respaldo__titulo-hito {
+  font-family: var(--fuente-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--c-marfil);
+  margin-bottom: var(--esp-3);
+}
+
+.respaldo__texto {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--c-crema);
+}
+
+@media (max-width: 900px) {
+  .respaldo__lista {
+    grid-template-columns: 1fr;
+    gap: var(--esp-6);
+  }
+  
+  .respaldo {
+    padding-block: var(--esp-12);
+  }
 }
