@@ -460,6 +460,11 @@
   border-top: 1px solid var(--c-crema-oscuro);
   border-bottom: 1px solid var(--c-crema-oscuro);
   text-align: center;
+  overflow: hidden;
+}
+
+.apoyos__encabezado {
+  margin-bottom: var(--esp-8);
 }
 
 .apoyos__texto {
@@ -468,24 +473,82 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--c-piedra);
-  margin-bottom: var(--esp-6);
 }
 
-.apoyos__lista {
+.apoyos__carrusel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.apoyos__pista {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: var(--esp-12);
-  flex-wrap: wrap;
-  font-family: var(--fuente-display);
-  font-size: 1.2rem;
-  font-style: italic;
-  color: var(--c-tinta-suave);
+  gap: var(--esp-8);
+  width: max-content;
+  animation: apoyos-carrusel 28s linear infinite;
 }
 
-.apoyos__separador {
-  color: var(--c-dorado);
-  font-style: normal;
+.apoyos__carrusel:hover .apoyos__pista {
+  animation-play-state: paused;
+}
+
+.apoyos__item {
+  flex: 0 0 clamp(220px, 28vw, 360px);
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--esp-5);
+  background-color: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--c-crema-oscuro);
+  border-radius: var(--radio-md);
+}
+
+.apoyos__item img {
+  display: block;
+  max-width: 100%;
+  max-height: 72px;
+  object-fit: contain;
+}
+
+@keyframes apoyos-carrusel {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - var(--esp-4)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apoyos__pista {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .apoyos__item[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .apoyos__pista {
+    gap: var(--esp-5);
+  }
+
+  .apoyos__item {
+    flex-basis: 220px;
+    height: 92px;
+  }
+
+  .apoyos__item img {
+    max-height: 58px;
+  }
 }
 
 /* ============================================================
